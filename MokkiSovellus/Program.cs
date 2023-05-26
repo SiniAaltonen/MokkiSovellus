@@ -1,7 +1,12 @@
+using Microsoft.EntityFrameworkCore;
+using MokkiSovellus.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<MokkiDbContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("MokkiApp")));
 
 var app = builder.Build();
 
