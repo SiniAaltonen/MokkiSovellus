@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "2OvtPp8aiWEP/qnKo/GsqqjvtQFg/5Ngm4vMmdtrKy8=",
+  "Hash": "UqnC/hs/TZ8svGPSIoli93LSBOp/dWbM7gwkCLQG1XM=",
   "Source": "MokkiSovellus",
   "BasePath": "_content/MokkiSovellus",
   "Mode": "Default",
@@ -51,12 +51,12 @@
       "OriginalItemSpec": "C:\\Users\\sinia\\source\\repos\\MokkiSovellus\\MokkiSovellus\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\MokkiSovellus.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\sinia\\source\\repos\\MokkiSovellus\\MokkiSovellus\\wwwroot\\css\\site.css",
+      "Identity": "C:\\Users\\sinia\\source\\repos\\MokkiSovellus\\MokkiSovellus\\wwwroot\\css\\style.css",
       "SourceId": "MokkiSovellus",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\sinia\\source\\repos\\MokkiSovellus\\MokkiSovellus\\wwwroot\\",
       "BasePath": "_content/MokkiSovellus",
-      "RelativePath": "css/site.css",
+      "RelativePath": "css/style.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -65,7 +65,24 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\site.css"
+      "OriginalItemSpec": "wwwroot\\css\\style.css"
+    },
+    {
+      "Identity": "C:\\Users\\sinia\\source\\repos\\MokkiSovellus\\MokkiSovellus\\wwwroot\\css\\style.css.map",
+      "SourceId": "MokkiSovellus",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\sinia\\source\\repos\\MokkiSovellus\\MokkiSovellus\\wwwroot\\",
+      "BasePath": "_content/MokkiSovellus",
+      "RelativePath": "css/style.css.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\style.css.map"
     },
     {
       "Identity": "C:\\Users\\sinia\\source\\repos\\MokkiSovellus\\MokkiSovellus\\wwwroot\\favicon.ico",

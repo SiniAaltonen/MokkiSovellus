@@ -5,8 +5,12 @@
       "PackagePath": "staticwebassets\\MokkiSovellus.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\sinia\\source\\repos\\MokkiSovellus\\MokkiSovellus\\wwwroot\\css\\site.css",
-      "PackagePath": "staticwebassets\\css\\site.css"
+      "Id": "C:\\Users\\sinia\\source\\repos\\MokkiSovellus\\MokkiSovellus\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
+    },
+    {
+      "Id": "C:\\Users\\sinia\\source\\repos\\MokkiSovellus\\MokkiSovellus\\wwwroot\\css\\style.css.map",
+      "PackagePath": "staticwebassets\\css\\style.css.map"
     },
     {
       "Id": "C:\\Users\\sinia\\source\\repos\\MokkiSovellus\\MokkiSovellus\\wwwroot\\favicon.ico",
