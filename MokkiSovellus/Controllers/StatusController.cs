@@ -4,38 +4,36 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using MokkiSovellus.Models;
+using MokkiSovellus.Services;
 
 namespace MokkiSovellus.Controllers
 {
     public class StatusController : Controller
     {
-        private readonly MokkiDbContext _context;
+        private readonly IStatusService _statusService;
 
-        public StatusController(MokkiDbContext context)
+        public StatusController(IStatusService statusService)
         {
-            _context = context;
+            _statusService = statusService;
         }
 
         // GET: Status
         public async Task<IActionResult> Index()
         {
-              return _context.Statuses != null ? 
-                          View(await _context.Statuses.ToListAsync()) :
-                          Problem("Entity set 'MokkiDbContext.Statuses'  is null.");
+            var statuses = await _statusService.GetAllStatuses();
+            return View(statuses);
         }
 
         // GET: Status/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Statuses == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var status = await _context.Statuses
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var status = await _statusService.GetStatusById(id.Value);
             if (status == null)
             {
                 return NotFound();
@@ -51,43 +49,40 @@ namespace MokkiSovellus.Controllers
         }
 
         // POST: Status/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Status1")] Status status)
+        public async Task<IActionResult> Create(Status status)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(status);
-                await _context.SaveChangesAsync();
+                await _statusService.CreateStatus(status);
                 return RedirectToAction(nameof(Index));
             }
+
             return View(status);
         }
 
         // GET: Status/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Statuses == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var status = await _context.Statuses.FindAsync(id);
+            var status = await _statusService.GetStatusById(id.Value);
             if (status == null)
             {
                 return NotFound();
             }
+
             return View(status);
         }
 
         // POST: Status/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Status1")] Status status)
+        public async Task<IActionResult> Edit(int id, Status status)
         {
             if (id != status.Id)
             {
@@ -98,12 +93,11 @@ namespace MokkiSovellus.Controllers
             {
                 try
                 {
-                    _context.Update(status);
-                    await _context.SaveChangesAsync();
+                    await _statusService.UpdateStatus(status);
                 }
-                catch (DbUpdateConcurrencyException)
+                catch (Exception)
                 {
-                    if (!StatusExists(status.Id))
+                    if (!await _statusService.StatusExists(status.Id))
                     {
                         return NotFound();
                     }
@@ -114,19 +108,19 @@ namespace MokkiSovellus.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+
             return View(status);
         }
 
         // GET: Status/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Statuses == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var status = await _context.Statuses
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var status = await _statusService.GetStatusById(id.Value);
             if (status == null)
             {
                 return NotFound();
@@ -140,23 +134,8 @@ namespace MokkiSovellus.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Statuses == null)
-            {
-                return Problem("Entity set 'MokkiDbContext.Statuses'  is null.");
-            }
-            var status = await _context.Statuses.FindAsync(id);
-            if (status != null)
-            {
-                _context.Statuses.Remove(status);
-            }
-            
-            await _context.SaveChangesAsync();
+            await _statusService.DeleteStatus(id);
             return RedirectToAction(nameof(Index));
-        }
-
-        private bool StatusExists(int id)
-        {
-          return (_context.Statuses?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

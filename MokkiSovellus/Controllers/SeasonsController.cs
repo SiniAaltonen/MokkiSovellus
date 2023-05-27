@@ -1,41 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using MokkiSovellus.Models;
+using MokkiSovellus.Services;
 
 namespace MokkiSovellus.Controllers
 {
     public class SeasonsController : Controller
     {
-        private readonly MokkiDbContext _context;
+        private readonly ISeasonService _seasonService;
 
-        public SeasonsController(MokkiDbContext context)
+        public SeasonsController(ISeasonService seasonService)
         {
-            _context = context;
+            _seasonService = seasonService;
         }
 
         // GET: Seasons
         public async Task<IActionResult> Index()
         {
-              return _context.Seasons != null ? 
-                          View(await _context.Seasons.ToListAsync()) :
-                          Problem("Entity set 'MokkiDbContext.Seasons'  is null.");
+            var seasons = await _seasonService.GetAllSeasons();
+            return View(seasons);
         }
 
         // GET: Seasons/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Seasons == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var season = await _context.Seasons
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var season = await _seasonService.GetSeasonById(id.Value);
             if (season == null)
             {
                 return NotFound();
@@ -51,43 +45,40 @@ namespace MokkiSovellus.Controllers
         }
 
         // POST: Seasons/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Season1,Description")] Season season)
+        public async Task<IActionResult> Create(Season season)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(season);
-                await _context.SaveChangesAsync();
+                await _seasonService.CreateSeason(season);
                 return RedirectToAction(nameof(Index));
             }
+
             return View(season);
         }
 
         // GET: Seasons/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Seasons == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var season = await _context.Seasons.FindAsync(id);
+            var season = await _seasonService.GetSeasonById(id.Value);
             if (season == null)
             {
                 return NotFound();
             }
+
             return View(season);
         }
 
         // POST: Seasons/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Season1,Description")] Season season)
+        public async Task<IActionResult> Edit(int id, Season season)
         {
             if (id != season.Id)
             {
@@ -96,37 +87,22 @@ namespace MokkiSovellus.Controllers
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(season);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!SeasonExists(season.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                await _seasonService.UpdateSeason(season);
                 return RedirectToAction(nameof(Index));
             }
+
             return View(season);
         }
 
         // GET: Seasons/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Seasons == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var season = await _context.Seasons
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var season = await _seasonService.GetSeasonById(id.Value);
             if (season == null)
             {
                 return NotFound();
@@ -140,23 +116,9 @@ namespace MokkiSovellus.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Seasons == null)
-            {
-                return Problem("Entity set 'MokkiDbContext.Seasons'  is null.");
-            }
-            var season = await _context.Seasons.FindAsync(id);
-            if (season != null)
-            {
-                _context.Seasons.Remove(season);
-            }
-            
-            await _context.SaveChangesAsync();
+            await _seasonService.DeleteSeason(id);
             return RedirectToAction(nameof(Index));
-        }
-
-        private bool SeasonExists(int id)
-        {
-          return (_context.Seasons?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
+

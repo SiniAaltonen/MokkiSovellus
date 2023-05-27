@@ -13,6 +13,9 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("MokkiApp")));
 builder.Services.AddScoped<IWorkRepository, WorkRepository>();
 builder.Services.AddScoped<IWorkService, WorkService>();
 
+builder.Services.AddScoped<ISeasonRepository, SeasonRepository>();
+builder.Services.AddScoped<ISeasonService, SeasonService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
