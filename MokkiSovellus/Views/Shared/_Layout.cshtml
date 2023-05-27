@@ -7,43 +7,130 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/MokkiSovellus.styles.css" asp-append-version="true" />
+
+    <!-- Lisää tässä tarvittavat CSS-tyylit valikon koodille -->
+    <!-- Favicon -->
+    <link rel="icon" href="https://mokkisovellus.blob.core.windows.net/mokkisovellus/favicon.ico" type="image/x-icon">
+
+
+    <!-- THEME CSS
+    ================================================== -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+    <!-- Themify -->
+    <link rel="stylesheet" href="plugins/themify/css/themify-icons.css">
+    <link rel="stylesheet" href="plugins/slick-carousel/slick-theme.css">
+    <link rel="stylesheet" href="plugins/slick-carousel/slick.css">
+    <!-- Slick Carousel -->
+    <link rel="stylesheet" href="plugins/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="plugins/owl-carousel/owl.theme.default.min.css">
+    <link rel="stylesheet" href="plugins/magnific-popup/magnific-popup.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
-    @*<header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MokkiSovellus</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>*@
+
+  
     <div class="container">
         <main role="main" class="pb-3">
+            <div class="col-lg-8 text-center col-md-8 col-5">
+                <nav class="navbar navbar-expand-lg navigation">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
+                            aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="ti-menu"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarContent">
+                        <div class="col-lg-2 header-left col-md-4 col-7">
+                            <ul class="list-inline header-socials-2 mb-0 text-center">
+                                <li class="list-inline-item"><a href="#"><i class="ti-facebook"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="ti-twitter"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="ti-linkedin"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="ti-pinterest"></i></a></li>
+                                <li class="list-inline-item">
+                                    <div class="search_toggle mobile-search d-md-block d-lg-none"><i class="ti-search"></i></div>
+                                </li>
+                            </ul>
+                        </div>
+                        <ul id="menu" class="menu navbar-nav mx-auto ">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                                   aria-haspopup="true" aria-expanded="false">
+                                    Etusivu
+                                </a>
+                                  
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="index.html">Etusivu</a>
+                                    <a class="dropdown-item" href="index-2.html">Kevään askareet</a>
+                                    <a class="dropdown-item" href="index-3.html">Alkukesän askareet</a>
+                                    <a class="dropdown-item" href="index-4.html">Keskikesän askareet</a>
+                                    <a class="dropdown-item" href="index-5.html">Istutus - mistä aloitan</a>
+                                    <a class="dropdown-item" href="index-6.html">Olenko unohtanut jotain?</a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown"
+                                   aria-haspopup="true" aria-expanded="false">
+                                    Vinkkipankki
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                                    <a class="dropdown-item" href="standard-fullwidth.html">Säästä aikaa</a>
+                                    <a class="dropdown-item" href="standard-left-sidebar.html">Säästä rahaa</a>
+                                    <a class="dropdown-item" href="standard-right-sidebar.html">Säästä hermojasi</a>
+                                </div>
+                            </li>
+
+                            <li class="nav-item"><a href="about.html" class="nav-link">Tiedot</a></li>
+                            <li class="nav-item"><a href="fashion.html" class="nav-link">Vuodenajat</a></li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown"
+                                   aria-haspopup="true" aria-expanded="false">
+                                    Askareet
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                                    <a class="dropdown-item" href="post-video.html">Ulkohommat</a>
+                                    <a class="dropdown-item" href="post-audio.html">Kasvimaa</a>
+                                    <a class="dropdown-item" href="post-link.html">Järvi</a>
+                                    <a class="dropdown-item" href="post-gallery.html">Metsä</a>
+                                    <a class="dropdown-item" href="post-image.html">Mökki</a>
+                                </div>
+                            </li>
+                            <li class="nav-item"><a href="contact.html" class="nav-link">Ota yhteyttä</a></li>
+
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            @RenderSection("Scripts", required: false)
             @RenderBody()
         </main>
     </div>
 
-    @*<footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - MokkiSovellus - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>*@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+    <!-- Lisää tässä tarvittavat JavaScript-tiedostot valikon koodille -->
+    <script>
+        // Lisää tässä valikon koodin vaatimat JavaScript-tiedostot
+        <!--THEME JAVASCRIPT FILES
+            ================================================== -->
+            <!--initialize jQuery Library-- >
+                <script src="plugins/jquery/jquery.js" ></script>
+    <!-- Bootstrap jQuery -->
+    <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="plugins/bootstrap/js/popper.min.js"></script>
+    <!-- Owl caeousel -->
+    <script src="plugins/owl-carousel/owl.carousel.min.js"></script>
+    <script src="plugins/slick-carousel/slick.min.js"></script>
+    <script src="plugins/magnific-popup/magnific-popup.js"></script>
+    <!-- Instagram Feed Js -->
+    <script src="plugins/instafeed-js/instafeed.min.js"></script>
+    <!-- Google Map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
+    <script src="plugins/google-map/gmap.js"></script>
+    <!-- Main Js File -->
+    <script src="js/script.js"></script>
+    </script>
+
 </body>
 </html>
