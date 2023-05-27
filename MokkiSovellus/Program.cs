@@ -10,8 +10,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<MokkiDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("MokkiApp")));
 
-builder.Services.AddScoped<IWorkRepository, WorkRepository>()
-                .AddScoped<IWorkService, WorkService>();
+builder.Services.AddScoped<IWorkRepository, WorkRepository>();
+builder.Services.AddScoped<IWorkService, WorkService>();
 
 var app = builder.Build();
 
