@@ -18,24 +18,36 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="WorkName" class="control-label"></label>
+                <label asp-for="WorkName" class="control-label">Askareen nimi</label>
                 <input asp-for="WorkName" class="form-control" />
-                <span asp-validation-for="WorkName" class="text-danger"></span>
+                <span asp-validation-for="WorkName" class="text-danger">Askareen nimi vaaditaan.</span>
             </div>
             <div class="form-group">
-                <label asp-for="WhenDuration" class="control-label"></label>
+                <label asp-for="WhenDuration" class="control-label">Askareen kesto</label>
                 <input asp-for="WhenDuration" class="form-control" />
-                <span asp-validation-for="WhenDuration" class="text-danger"></span>
+                <span asp-validation-for="WhenDuration" class="text-danger">Mikäli et tiedä askareen kestoa, voit arvioida sen.</span>
             </div>
             <div class="form-group">
-                <label asp-for="Equipment" class="control-label"></label>
+                <label asp-for="Equipment" class="control-label">Tarvittavat työvälineet</label>
                 <input asp-for="Equipment" class="form-control" />
-                <span asp-validation-for="Equipment" class="text-danger"></span>
+                <span asp-validation-for="Equipment" class="text-danger">Määrittele työvälineet parhaasi mukaan.</span>
             </div>
-            <div class="form-group">
+            @*<div class="form-group">
                 <label asp-for="SeasonId" class="control-label"></label>
                 <select asp-for="SeasonId" class="form-control" asp-items="ViewBag.SeasonId"></select>
-            </div>
+            </div>*@
+<div class="form-group">
+    <label asp-for="SeasonId" class="control-label">Kausi</label>
+    <select asp-for="SeasonId" class="form-control">
+        <option value="">Valitse kausi</option>
+        <option value="1">Kevät</option>
+        <option value="2">Kesä</option>
+        <option value="3">Syksy</option>
+        <option value="4">Talvi</option>
+    </select>
+</div>
+
+
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

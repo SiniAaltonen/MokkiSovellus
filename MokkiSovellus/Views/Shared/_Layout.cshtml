@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿@*<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -80,7 +80,7 @@
                                 </div>
                             </li>
 
-                            <li class="nav-item"><a href="about.html" class="nav-link">Tiedot</a></li>
+                            <li class="nav-item"><a href="about.html" class="nav-link">Postaukset</a></li>
                             <li class="nav-item"><a href="fashion.html" class="nav-link">Vuodenajat</a></li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown"
@@ -134,3 +134,110 @@
 
 </body>
 </html>
+*@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MokkiSovellus</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MokkiSovellus.styles.css" asp-append-version="true" />
+    <link rel="icon" href="https://mokkisovellus.blob.core.windows.net/mokkisovellus/favicon.ico" type="image/x-icon">
+
+    <!-- Lisää tässä tarvittavat CSS-tyylit valikon koodille -->
+    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="plugins/themify/css/themify-icons.css">
+    <link rel="stylesheet" href="plugins/slick-carousel/slick-theme.css">
+    <link rel="stylesheet" href="plugins/slick-carousel/slick.css">
+    <link rel="stylesheet" href="plugins/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="plugins/owl-carousel/owl.theme.default.min.css">
+    <link rel="stylesheet" href="plugins/magnific-popup/magnific-popup.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <main role="main" class="pb-3">
+            <div class="col-lg-8 text-center col-md-8 col-5">
+                <nav class="navbar navbar-expand-lg navigation">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
+                            aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="ti-menu"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarContent">
+                        <div class="col-lg-2 header-left col-md-4 col-7">
+                            <ul class="list-inline header-socials-2 mb-0 text-center">
+                                <li class="list-inline-item"><a href="#"><i class="ti-facebook"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="ti-twitter"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="ti-linkedin"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="ti-pinterest"></i></a></li>
+                                <li class="list-inline-item">
+                                    <div class="search_toggle mobile-search d-md-block d-lg-none"><i class="ti-search"></i></div>
+                                </li>
+                            </ul>
+                        </div>
+                        <ul id="menu" class="menu navbar-nav mx-auto ">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" href="https://localhost:7002/">Etusivu</a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="https://localhost:7002/">Etusivu</a>
+                                    <a class="dropdown-item" href="https://localhost:7002/Works">Kevään askareet</a>
+                                    <a class="dropdown-item" href="index-3.html">Alkukesän askareet</a>
+                                    <a class="dropdown-item" href="index-4.html">Keskikesän askareet</a>
+                                    <a class="dropdown-item" href="index-5.html">Istutus - mistä aloitan</a>
+                                    <a class="dropdown-item" href="index-6.html">Olenko unohtanut jotain?</a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown"
+                                   aria-haspopup="true" aria-expanded="false">
+                                    Vinkkipankki
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                                    <a class="dropdown-item" href="standard-fullwidth.html">Säästä aikaa</a>
+                                    <a class="dropdown-item" href="standard-left-sidebar.html">Säästä rahaa</a>
+                                    <a class="dropdown-item" href="standard-right-sidebar.html">Säästä hermojasi</a>
+                                </div>
+                            </li>
+                            <li class="nav-item"><a href="about.html" class="nav-link">Postaukset</a></li>
+                            <li class="nav-item"><a href="fashion.html" class="nav-link">Vuodenajat</a></li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown"
+                                   aria-haspopup="true" aria-expanded="false">
+                                    Askareet
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                                    <a class="dropdown-item" href="post-video.html">Ulkohommat</a>
+                                    <a class="dropdown-item" href="post-audio.html">Kasvimaa</a>
+                                    <a class="dropdown-item" href="post-link.html">Järvi</a>
+                                    <a class="dropdown-item" href="post-gallery.html">Metsä</a>
+                                    <a class="dropdown-item" href="post-image.html">Mökki</a>
+                                </div>
+                            </li>
+                            <li class="nav-item"><a href="contact.html" class="nav-link">Ota yhteyttä</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            @RenderSection("Scripts", required: false)
+            @RenderBody()
+        </main>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <!-- Lisää tässä tarvittavat JavaScript-tiedostot valikon koodille -->
+    <script src="plugins/jquery/jquery.js"></script>
+    <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="plugins/bootstrap/js/popper.min.js"></script>
+    <script src="plugins/owl-carousel/owl.carousel.min.js"></script>
+    <script src="plugins/slick-carousel/slick.min.js"></script>
+    <script src="plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="plugins/sticky/sticky.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
+
