@@ -4,29 +4,84 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Revolve - Personal Magazine blog Template</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!--Favicon-->
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+
+	<!-- THEME CSS
+	================================================== -->
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+	<!-- Themify -->
+	<link rel="stylesheet" href="plugins/themify/css/themify-icons.css">
+	<link rel="stylesheet" href="plugins/slick-carousel/slick-theme.css">
+	<link rel="stylesheet" href="plugins/slick-carousel/slick.css">
+	<!-- Slick Carousel -->
+	<link rel="stylesheet" href="plugins/owl-carousel/owl.carousel.min.css">
+	<link rel="stylesheet" href="plugins/owl-carousel/owl.theme.default.min.css">
+	<link rel="stylesheet" href="plugins/magnific-popup/magnific-popup.css">
+	<!-- manin stylesheet -->
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+	<!--search overlay start-->
+	<div class="search-wrap">
+		<div class="overlay">
+			<form action="#" class="search-form">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-10 col-9">
+							<input type="text" class="form-control" placeholder="Search..." />
+						</div>
+						<div class="col-md-2 col-3 text-right">
+							<div class="search_toggle toggle-wrap d-inline-block">
+								<i class="ti-close"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<!--search overlay end-->
+
+<h1>Tehtävät askareet</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Lisää listaan askare</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.WorkName)
+                @*@Html.DisplayNameFor(model => model.WorkName)*@
+                @Html.DisplayName("Askareen nimi")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.WhenDuration)
+                @*@Html.DisplayNameFor(model => model.WhenDuration)*@
+                @Html.DisplayName("Kesto")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Equipment)
+               @* @Html.DisplayNameFor(model => model.Equipment)*@
+                @Html.DisplayName("Tarvittavat välineet")
+            </th>
+            @*<th>
+                @Html.DisplayName("Työn tila")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.WorkStatus)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Season)
-            </th>
+                @Html.DisplayName("Kausi")
+            </th>*@
             <th></th>
         </tr>
     </thead>
@@ -42,18 +97,60 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Equipment)
             </td>
-            <td>
+           @* <td>
                 @Html.DisplayFor(modelItem => item.WorkStatus)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Season.Id)
-            </td>
+            </td>*@
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.Id">Muokkaa</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Yksityiskohdat</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Poista</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+
+<section class="section-padding">
+		<div 
+class="container">
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-6">
+					<div class="category-item">
+						<div class="category-img">
+							<a href="blog-single.html"><img src="https://mokkisovellus.blob.core.windows.net/mokkisovellus/IMG_8974.jpg" alt="" class="img-fluid w-100"></a>
+						</div>
+						<div class="content">
+							<a href="#" class="text-color text-uppercase font-sm letter-spacing font-extra">Risuista aidaksi</a>
+							<h4><a href="blog-single.html">Käytä hyödyksi ikävät risut ja tee niistä trendikäs risuaita</a></h4>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-6">
+					<div class="category-item">
+						<div class="category-img">
+							<a href="blog-single.html"><img src="https://mokkisovellus.blob.core.windows.net/mokkisovellus/IMG_9183.jpg" alt="" class="img-fluid w-100"></a>
+						</div>
+						<div class="content">
+							<a href="#" class="text-color text-uppercase font-sm letter-spacing font-extra">Kulkureitit</a>
+							<h4><a href="blog-single.html">Miten saada savimaahan kuivat polut</a></h4>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-6">
+					<div class="category-item">
+						<div class="category-img">
+							<a href="blog-single.html"><img src="https://mokkisovellus.blob.core.windows.net/mokkisovellus/IMG_9240.jpg" alt="" class="img-fluid w-100"></a>
+						</div>
+						<div class="content">
+							<a href="#" class="text-color text-uppercase font-sm letter-spacing font-extra">Karvakuonojen suosikit</a>
+							<h4><a href="blog-single.html">Mitkä ovat koirieni suosikit mökillä</a></h4>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
